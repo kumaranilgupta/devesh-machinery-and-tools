@@ -29,12 +29,18 @@
       <h1>Contact Us</h1>
       <p class="lead">Questions about equipment, quotes, or service? Send us details and we'll respond promptly.</p>
 
-      <form id="contactForm" class="contact-form" novalidate action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST" data-formspree="true">
+      <!-- Netlify Forms: works when deployed to Netlify. Keeps local _next redirect for testing. -->
+      <form id="contactForm" class="contact-form" novalidate name="contact" method="POST" action="/thank-you.html" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="_next" value="/thank-you.html">
+        <!-- honeypot field -->
+        <div style="display:none">
+          <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+        </div>
         <label>Full name<input type="text" name="name" id="name" required placeholder="Your name"></label>
         <label>Email address<input type="email" name="email" id="email" required placeholder="you@example.com"></label>
         <label>Phone (optional)<input type="tel" name="phone" id="phone" placeholder="+91 98765 43210"></label>
         <label>Message<textarea name="message" id="message" rows="6" required placeholder="Tell us about your needs"></textarea></label>
-        <input type="hidden" name="_next" value="/thank-you.html">
         <div class="form-row">
           <button type="submit" class="btn">Send Message</button>
           <button type="reset" class="btn btn-ghost">Reset</button>
