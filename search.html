@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Search — Devesh Machinery & Tools</title>
+  <meta name="description" content="Search the site.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html">Devesh<span class="accent">.</span></a></div></header>
+  <main class="container page">
+    <h1>Search</h1>
+    <input id="q" placeholder="Search site" style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.05)">
+    <div id="results" style="margin-top:1rem"></div>
+  </main>
+  <script>
+    // Simple client-side search index
+    const pages = [
+      {path:'index.html',title:'Home',desc:'Industrial tools and services'},
+      {path:'about.html',title:'About',desc:'About Devesh Machinery'},
+      {path:'products.html',title:'Products',desc:'Products list'},
+      {path:'products_machine_tools.html',title:'Machine Tools',desc:'Lathe, milling'},
+      {path:'products_spare_parts.html',title:'Spare Parts',desc:'Bearings, motors'},
+      {path:'services.html',title:'Services',desc:'Design, fabrication'},
+      {path:'services_fabrication.html',title:'Design & Fabrication',desc:'Custom fabrication'},
+      {path:'services_repair.html',title:'Repair & Maintenance',desc:'Repair services'},
+      {path:'projects.html',title:'Projects',desc:'Case studies'},
+      {path:'contact.html',title:'Contact',desc:'Get in touch'}
+    ];
+    const q=document.getElementById('q');
+    const res=document.getElementById('results');
+    q.addEventListener('input',()=>{
+      const v=q.value.trim().toLowerCase();
+      if(!v) return res.innerHTML='';
+      const out = pages.filter(p=> (p.title+p.desc).toLowerCase().includes(v)).slice(0,10)
+        .map(p=>`<div class="card"><a href="${p.path}"><strong>${p.title}</strong></a><p>${p.desc}</p></div>`).join('');
+      res.innerHTML = out || '<p>No results</p>';
+    });
+  </script>
+</body>
+</html>

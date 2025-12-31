@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Devesh Machinery & Tools</title>
+  <meta name="description" content="Contact Devesh Machinery & Tools for quotes, service and support.">
+  <meta property="og:title" content="Contact — Devesh Machinery & Tools">
+  <meta property="og:description" content="Get quotes, service and support from Devesh Machinery & Tools.">
+  <meta property="og:image" content="/assets/images/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/assets/images/og-default.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Devesh<span class="accent">.</span></a>
+      <nav class="nav" id="nav2" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="contact.html" class="cta">Contact Us</a>
+      </nav>
+      <button id="navToggle2" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main class="container page">
+    <section class="contact">
+      <h1>Contact Us</h1>
+      <p class="lead">Questions about equipment, quotes, or service? Send us details and we'll respond promptly.</p>
+
+      <form id="contactForm" class="contact-form" novalidate action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST" data-formspree="true">
+        <label>Full name<input type="text" name="name" id="name" required placeholder="Your name"></label>
+        <label>Email address<input type="email" name="email" id="email" required placeholder="you@example.com"></label>
+        <label>Phone (optional)<input type="tel" name="phone" id="phone" placeholder="+91 98765 43210"></label>
+        <label>Message<textarea name="message" id="message" rows="6" required placeholder="Tell us about your needs"></textarea></label>
+        <input type="hidden" name="_next" value="/thank-you.html">
+        <div class="form-row">
+          <button type="submit" class="btn">Send Message</button>
+          <button type="reset" class="btn btn-ghost">Reset</button>
+        </div>
+      </form>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>© 2025 Devesh Machinery & Tools</div>
+      <div><a href="contact.html">Contact</a> · <a href="#">Privacy</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
