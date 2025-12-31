@@ -23,6 +23,28 @@ Deployment options
 	2. Select this repository and set the publish directory to `/` (root). There is no build command for this static demo.
 	3. Netlify will publish the site and provide a public URL.
 
+Netlify CI via GitHub Actions
+
+I've added a GitHub Action at `.github/workflows/deploy-netlify.yml` which can automatically deploy to Netlify on every push to `main`. To enable it:
+
+1. Create a site on Netlify (press "New site from Git").
+2. In Netlify, go to Site settings → Site information and copy the `Site ID`.
+3. Create a personal access token on Netlify: https://app.netlify.com/user/applications#personal-access-tokens
+4. Add two secrets to your GitHub repository (Settings → Secrets & variables → Actions):
+	- `NETLIFY_AUTH_TOKEN` (the token from step 3)
+	- `NETLIFY_SITE_ID` (the Site ID from step 2)
+5. Push to `main` — the workflow will run and, if secrets are set, publish the root directory to your Netlify site.
+
+Manual Netlify CLI deploy (optional)
+
+If you prefer to deploy from your machine:
+```bash
+npm install -g netlify-cli
+netlify login
+netlify deploy --dir=./ --prod --site YOUR_SITE_ID
+```
+
+
 
 Added features in this update:
 
